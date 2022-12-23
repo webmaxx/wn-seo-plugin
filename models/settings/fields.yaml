@@ -1,0 +1,574 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+
+    icons:
+
+        webmaxx.seo::lang.models.settings.tabs.site: icon-newspaper-o
+        webmaxx.seo::lang.models.settings.tabs.meta_tags: icon-tag
+        webmaxx.seo::lang.models.settings.tabs.og_tags: icon-object-group
+        webmaxx.seo::lang.models.settings.tabs.counters: icon-line-chart
+        webmaxx.seo::lang.models.settings.tabs.robots_txt: icon-robot
+        webmaxx.seo::lang.models.settings.tabs.humans_txt: icon-user-group
+        webmaxx.seo::lang.models.settings.tabs.security_txt: icon-lock
+        webmaxx.seo::lang.models.settings.tabs.ads_txt: icon-trademark
+        webmaxx.seo::lang.models.settings.tabs.app_ads_txt: icon-trademark
+
+    fields:
+
+        site_name:
+            tab: webmaxx.seo::lang.models.settings.tabs.site
+            label: webmaxx.seo::lang.models.settings.fields.site_name.label
+            placeholder: webmaxx.seo::lang.models.settings.fields.site_name.placeholder
+            span: left
+
+        # Meta Tags
+
+        sitename_in_title_enabled:
+            tab: webmaxx.seo::lang.models.settings.tabs.meta_tags
+            label: webmaxx.seo::lang.models.settings.fields.sitename_in_title_enabled.label
+            type: switch
+            span: left
+
+        current_url_as_canonical:
+            tab: webmaxx.seo::lang.models.settings.tabs.meta_tags
+            label: webmaxx.seo::lang.models.settings.fields.current_url_as_canonical.label
+            comment: webmaxx.seo::lang.models.settings.fields.current_url_as_canonical.comment
+            type: switch
+            span: right
+
+        site_name_title:
+            tab: webmaxx.seo::lang.models.settings.tabs.meta_tags
+            label: webmaxx.seo::lang.models.settings.fields.site_name_title.label
+            placeholder: webmaxx.seo::lang.models.settings.fields.site_name_title.placeholder
+            default: "- {{ site_name }}"
+            trigger:
+                action: show
+                field: sitename_in_title_enabled
+                condition: checked
+            span: left
+
+        site_name_title_position_in_title:
+            tab: webmaxx.seo::lang.models.settings.tabs.meta_tags
+            label: webmaxx.seo::lang.models.settings.fields.site_name_title_position_in_title.label
+            type: balloon-selector
+            default: after
+            options:
+                before: webmaxx.seo::lang.models.settings.fields.site_name_title_position_in_title.options.before
+                after: webmaxx.seo::lang.models.settings.fields.site_name_title_position_in_title.options.after
+            trigger:
+                action: show
+                field: sitename_in_title_enabled
+                condition: checked
+            span: right
+
+        meta_robots_index:
+            tab: webmaxx.seo::lang.models.settings.tabs.meta_tags
+            label: webmaxx.seo::lang.models.settings.fields.meta_robots_index.label
+            type: balloon-selector
+            default: index
+            options:
+                none: none
+                index: index
+                noindex: noindex
+            span: left
+
+        meta_robots_follow:
+            tab: webmaxx.seo::lang.models.settings.tabs.meta_tags
+            label: webmaxx.seo::lang.models.settings.fields.meta_robots_follow.label
+            type: balloon-selector
+            default: follow
+            options:
+                none: none
+                follow: follow
+                nofollow: nofollow
+            span: left
+
+        custom_meta_tags:
+            tab: webmaxx.seo::lang.models.settings.tabs.meta_tags
+            label: webmaxx.seo::lang.models.settings.fields.custom_meta_tags.label
+            type: codeeditor
+            language: html
+            fontSize: 14
+            size: giant
+
+        meta_available_tags:
+            tab: webmaxx.seo::lang.models.settings.tabs.meta_tags
+            type: partial
+            path: $/webmaxx/seo/models/meta/_field_available_tags.htm
+            span: full
+
+
+        # OpenGraph
+
+        og_image:
+            tab: webmaxx.seo::lang.models.settings.tabs.og_tags
+            label: webmaxx.seo::lang.models.settings.fields.og_image.label
+            type: mediafinder
+            mode: image
+            imageHeight: 250
+            span: left
+
+        custom_og_tags:
+            tab: webmaxx.seo::lang.models.settings.tabs.og_tags
+            label: webmaxx.seo::lang.models.settings.fields.custom_og_tags.label
+            type: codeeditor
+            language: html
+            fontSize: 14
+            size: giant
+
+        og_available_tags:
+            tab: webmaxx.seo::lang.models.settings.tabs.og_tags
+            type: partial
+            path: $/webmaxx/seo/models/meta/_field_available_tags.htm
+            span: full
+
+
+        # Counters
+
+        gtm_code:
+            tab: webmaxx.seo::lang.models.settings.tabs.counters
+            label: webmaxx.seo::lang.models.settings.fields.gtm_code.label
+            type: text
+            span: left
+
+        counters:
+            tab: webmaxx.seo::lang.models.settings.tabs.counters
+            label: webmaxx.seo::lang.models.settings.fields.counters.label
+            type: codeeditor
+            language: html
+            fontSize: 14
+            size: giant
+
+
+        # Robots.txt
+
+        robots_txt_link:
+            tab: webmaxx.seo::lang.models.settings.tabs.robots_txt
+            type: partial
+            path: $/webmaxx/seo/models/settings/_field_robots_txt_link.htm
+            span: left
+
+        robots_txt_enabled:
+            tab: webmaxx.seo::lang.models.settings.tabs.robots_txt
+            label: webmaxx.seo::lang.models.settings.fields.robots_txt_enabled.label
+            type: switch
+            span: left
+
+        robots_txt_body:
+            tab: webmaxx.seo::lang.models.settings.tabs.robots_txt
+            type: codeeditor
+            language: text
+            fontSize: 16
+            size: giant
+            default: "User-agent: *\nAllow: /\n\nHost: {{ site_url }}\nSitemap: {{ site_url }}/sitemap.xml"
+            span: full
+            trigger:
+                action: show
+                field: robots_txt_enabled
+                condition: checked
+
+        robots_txt_available_tags:
+            tab: webmaxx.seo::lang.models.settings.tabs.robots_txt
+            type: partial
+            path: $/webmaxx/seo/models/settings/_field_robots_txt_available_tags.htm
+            span: full
+            trigger:
+                action: show
+                field: robots_txt_enabled
+                condition: checked
+
+
+        # Humans.txt
+
+        humans_txt_link:
+            tab: webmaxx.seo::lang.models.settings.tabs.humans_txt
+            type: partial
+            path: $/webmaxx/seo/models/settings/_field_humans_txt_link.htm
+            span: left
+
+        humans_txt_info:
+            tab: webmaxx.seo::lang.models.settings.tabs.humans_txt
+            label: webmaxx.seo::lang.models.settings.fields.humans_txt_info.label
+            type: partial
+            path: $/webmaxx/seo/models/settings/_field_humans_txt_info.htm
+            span: right
+
+        humans_txt_enabled:
+            tab: webmaxx.seo::lang.models.settings.tabs.humans_txt
+            label: webmaxx.seo::lang.models.settings.fields.humans_txt_enabled.label
+            type: switch
+            span: left
+
+        humans_txt_body:
+            tab: webmaxx.seo::lang.models.settings.tabs.humans_txt
+            type: codeeditor
+            language: text
+            fontSize: 16
+            size: giant
+            default: ''
+            span: full
+            trigger:
+                action: show
+                field: humans_txt_enabled
+                condition: checked
+
+        humans_txt_available_tags:
+            tab: webmaxx.seo::lang.models.settings.tabs.humans_txt
+            type: partial
+            path: $/webmaxx/seo/models/settings/_field_humans_txt_available_tags.htm
+            span: full
+            trigger:
+                action: show
+                field: humans_txt_enabled
+                condition: checked
+
+
+        # Security.txt
+
+        security_txt_link:
+            tab: webmaxx.seo::lang.models.settings.tabs.security_txt
+            type: partial
+            path: $/webmaxx/seo/models/settings/_field_security_txt_link.htm
+            span: left
+
+        security_txt_info:
+            tab: webmaxx.seo::lang.models.settings.tabs.security_txt
+            label: webmaxx.seo::lang.models.settings.fields.security_txt_info.label
+            type: partial
+            path: $/webmaxx/seo/models/settings/_field_security_txt_info.htm
+            span: right
+
+        security_txt_enabled:
+            tab: webmaxx.seo::lang.models.settings.tabs.security_txt
+            label: webmaxx.seo::lang.models.settings.fields.security_txt_enabled.label
+            type: switch
+            span: left
+
+        security_txt_form:
+            tab: webmaxx.seo::lang.models.settings.tabs.security_txt
+            type: nestedform
+            usePanelStyles: false
+            form:
+                fields:
+                    contact:
+                        label: webmaxx.seo::lang.models.settings.fields.security_txt_form.contact.label
+                        commentAbove: webmaxx.seo::lang.models.settings.fields.security_txt_form.contact.comment
+                        commentHtml: true
+                        required: true
+                        type: repeater
+                        minItems: 1
+                        titleFrom: value
+                        prompt: webmaxx.seo::lang.models.settings.fields.security_txt_form.contact.prompt
+                        form:
+                            fields:
+                                value:
+                                    label: webmaxx.seo::lang.models.settings.fields.security_txt_form.contact.fields.contact.label
+                                    placeholder: 'security@example.com'
+                                    type: text
+                                    span: full
+                        span: full
+                    expires:
+                        label: webmaxx.seo::lang.models.settings.fields.security_txt_form.expires.label
+                        commentAbove: webmaxx.seo::lang.models.settings.fields.security_txt_form.expires.comment
+                        commentHtml: true
+                        required: true
+                        type: datepicker
+                        mode: datetime
+                        firstDay: 1
+                        span: full
+                    encryption:
+                        label: webmaxx.seo::lang.models.settings.fields.security_txt_form.encryption.label
+                        commentAbove: webmaxx.seo::lang.models.settings.fields.security_txt_form.encryption.comment
+                        commentHtml: true
+                        type: repeater
+                        titleFrom: value
+                        prompt: webmaxx.seo::lang.models.settings.fields.security_txt_form.encryption.prompt
+                        form:
+                            fields:
+                                value:
+                                    label: webmaxx.seo::lang.models.settings.fields.security_txt_form.encryption.fields.url.label
+                                    type: text
+                                    placeholder: 'https://example.com/pgp-key.txt'
+                                    span: full
+                        span: full
+                    acknowledgments:
+                        label: webmaxx.seo::lang.models.settings.fields.security_txt_form.acknowledgments.label
+                        commentAbove: webmaxx.seo::lang.models.settings.fields.security_txt_form.acknowledgments.comment
+                        commentHtml: true
+                        type: repeater
+                        titleFrom: value
+                        prompt: webmaxx.seo::lang.models.settings.fields.security_txt_form.acknowledgments.prompt
+                        form:
+                            fields:
+                                value:
+                                    label: webmaxx.seo::lang.models.settings.fields.security_txt_form.acknowledgments.fields.url.label
+                                    type: text
+                                    placeholder: 'https://example.com/hall-of-fame.html'
+                                    span: full
+                        span: full
+                    preferred_languages:
+                        label: webmaxx.seo::lang.models.settings.fields.security_txt_form.preferred_languages.label
+                        commentAbove: webmaxx.seo::lang.models.settings.fields.security_txt_form.preferred_languages.comment
+                        commentHtml: true
+                        type: text
+                        placeholder: 'ru, en, es'
+                        span: full
+                    canonical:
+                        label: webmaxx.seo::lang.models.settings.fields.security_txt_form.canonical.label
+                        commentAbove: webmaxx.seo::lang.models.settings.fields.security_txt_form.canonical.comment
+                        commentHtml: true
+                        type: repeater
+                        titleFrom: value
+                        prompt: webmaxx.seo::lang.models.settings.fields.security_txt_form.canonical.prompt
+                        form:
+                            fields:
+                                value:
+                                    label: webmaxx.seo::lang.models.settings.fields.security_txt_form.canonical.fields.url.label
+                                    type: text
+                                    placeholder: 'https://example.com/.well-known/security.txt'
+                                    span: full
+                        span: full
+                    policy:
+                        label: webmaxx.seo::lang.models.settings.fields.security_txt_form.policy.label
+                        commentAbove: webmaxx.seo::lang.models.settings.fields.security_txt_form.policy.comment
+                        commentHtml: true
+                        type: repeater
+                        titleFrom: value
+                        prompt: webmaxx.seo::lang.models.settings.fields.security_txt_form.policy.prompt
+                        form:
+                            fields:
+                                value:
+                                    label: webmaxx.seo::lang.models.settings.fields.security_txt_form.policy.fields.url.label
+                                    type: text
+                                    placeholder: 'https://example.com/security-policy.html'
+                                    span: full
+                        span: full
+                    hiring:
+                        label: webmaxx.seo::lang.models.settings.fields.security_txt_form.hiring.label
+                        commentAbove: webmaxx.seo::lang.models.settings.fields.security_txt_form.hiring.comment
+                        commentHtml: true
+                        type: repeater
+                        titleFrom: value
+                        prompt: webmaxx.seo::lang.models.settings.fields.security_txt_form.hiring.prompt
+                        form:
+                            fields:
+                                value:
+                                    label: webmaxx.seo::lang.models.settings.fields.security_txt_form.hiring.fields.url.label
+                                    type: text
+                                    placeholder: 'https://example.com/jobs.html'
+                                    span: full
+                        span: full
+            span: left
+            trigger:
+                action: show
+                field: security_txt_enabled
+                condition: checked
+
+        security_txt_available_tags:
+            tab: webmaxx.seo::lang.models.settings.tabs.security_txt
+            type: partial
+            path: $/webmaxx/seo/models/settings/_field_security_txt_available_tags.htm
+            span: right
+            trigger:
+                action: show
+                field: security_txt_enabled
+                condition: checked
+
+
+        # Ads.txt
+
+        ads_txt_link:
+            tab: webmaxx.seo::lang.models.settings.tabs.ads_txt
+            type: partial
+            path: $/webmaxx/seo/models/settings/_field_ads_txt_link.htm
+            span: left
+
+        ads_txt_info:
+            tab: webmaxx.seo::lang.models.settings.tabs.ads_txt
+            label: webmaxx.seo::lang.models.settings.fields.ads_txt_info.label
+            type: partial
+            path: $/webmaxx/seo/models/settings/_field_ads_txt_info.htm
+            span: right
+
+        ads_txt_enabled:
+            tab: webmaxx.seo::lang.models.settings.tabs.ads_txt
+            label: webmaxx.seo::lang.models.settings.fields.ads_txt_enabled.label
+            type: switch
+            span: left
+
+        ads_txt_rows:
+            tab: webmaxx.seo::lang.models.settings.tabs.ads_txt
+            label: webmaxx.seo::lang.models.settings.fields.ads_txt_rows.label
+            type: repeater
+            prompt: webmaxx.seo::lang.models.settings.fields.ads_txt_rows.prompt
+            form:
+                fields:
+                    domain:
+                        label: Domain
+                        required: true
+                        type: text
+                        span: storm
+                        cssClass: 'col-md-6 col-lg-3'
+                    account_id:
+                        label: Account ID
+                        required: true
+                        type: text
+                        span: storm
+                        cssClass: 'col-md-6 col-lg-3'
+                    account_type:
+                        label: Account Type
+                        required: true
+                        type: dropdown
+                        options:
+                            DIRECT: DIRECT
+                            RESELLER: RESELLER
+                        span: storm
+                        cssClass: 'col-md-6 col-lg-3'
+                    tag_id:
+                        label: Tag ID
+                        type: text
+                        span: storm
+                        cssClass: 'col-md-6 col-lg-3'
+            span: full
+            trigger:
+                action: show
+                field: ads_txt_enabled
+                condition: checked
+
+        ads_txt_vars:
+            tab: webmaxx.seo::lang.models.settings.tabs.ads_txt
+            label: webmaxx.seo::lang.models.settings.fields.ads_txt_vars.label
+            type: repeater
+            prompt: webmaxx.seo::lang.models.settings.fields.ads_txt_vars.prompt
+            form:
+                fields:
+                    type:
+                        label: webmaxx.seo::lang.models.settings.fields.ads_txt_vars.fields.type.label
+                        type: dropdown
+                        options:
+                            contact: Contact
+                            subdomain: Sub Domain
+                            inventorypartnerdomain: Inventory Partner Domain
+                            ownerdomain: Owner Domain
+                            managerdomain: Manager Domain
+                        span: left
+                    value:
+                        label: webmaxx.seo::lang.models.settings.fields.ads_txt_vars.fields.value.label
+                        type: text
+                        span: right
+            span: left
+            trigger:
+                action: show
+                field: ads_txt_enabled
+                condition: checked
+
+        ads_txt_available_tags:
+            tab: webmaxx.seo::lang.models.settings.tabs.ads_txt
+            type: partial
+            path: $/webmaxx/seo/models/settings/_field_ads_txt_available_tags.htm
+            span: right
+            trigger:
+                action: show
+                field: ads_txt_enabled
+                condition: checked
+
+
+        # App-Ads.txt
+
+        app_ads_txt_link:
+            tab: webmaxx.seo::lang.models.settings.tabs.app_ads_txt
+            type: partial
+            path: $/webmaxx/seo/models/settings/_field_app_ads_txt_link.htm
+            span: left
+
+        app_ads_txt_info:
+            tab: webmaxx.seo::lang.models.settings.tabs.app_ads_txt
+            label: webmaxx.seo::lang.models.settings.fields.app_ads_txt_info.label
+            type: partial
+            path: $/webmaxx/seo/models/settings/_field_app_ads_txt_info.htm
+            span: right
+
+        app_ads_txt_enabled:
+            tab: webmaxx.seo::lang.models.settings.tabs.app_ads_txt
+            label: webmaxx.seo::lang.models.settings.fields.app_ads_txt_enabled.label
+            type: switch
+            span: left
+
+        app_ads_txt_rows:
+            tab: webmaxx.seo::lang.models.settings.tabs.app_ads_txt
+            label: webmaxx.seo::lang.models.settings.fields.app_ads_txt_rows.label
+            type: repeater
+            prompt: webmaxx.seo::lang.models.settings.fields.app_ads_txt_rows.prompt
+            form:
+                fields:
+                    domain:
+                        label: Domain
+                        required: true
+                        type: text
+                        span: storm
+                        cssClass: 'col-md-6 col-lg-3'
+                    account_id:
+                        label: Account ID
+                        required: true
+                        type: text
+                        span: storm
+                        cssClass: 'col-md-6 col-lg-3'
+                    account_type:
+                        label: Account Type
+                        required: true
+                        type: dropdown
+                        options:
+                            DIRECT: DIRECT
+                            RESELLER: RESELLER
+                        span: storm
+                        cssClass: 'col-md-6 col-lg-3'
+                    tag_id:
+                        label: Tag ID
+                        type: text
+                        span: storm
+                        cssClass: 'col-md-6 col-lg-3'
+            span: full
+            trigger:
+                action: show
+                field: app_ads_txt_enabled
+                condition: checked
+
+        app_ads_txt_vars:
+            tab: webmaxx.seo::lang.models.settings.tabs.app_ads_txt
+            label: webmaxx.seo::lang.models.settings.fields.app_ads_txt_vars.label
+            type: repeater
+            prompt: webmaxx.seo::lang.models.settings.fields.app_ads_txt_vars.prompt
+            form:
+                fields:
+                    type:
+                        label: webmaxx.seo::lang.models.settings.fields.app_ads_txt_vars.fields.type.label
+                        type: dropdown
+                        options:
+                            contact: Contact
+                            subdomain: Sub Domain
+                            inventorypartnerdomain: Inventory Partner Domain
+                            ownerdomain: Owner Domain
+                            managerdomain: Manager Domain
+                        span: left
+                    value:
+                        label: webmaxx.seo::lang.models.settings.fields.app_ads_txt_vars.fields.value.label
+                        type: text
+                        span: right
+            span: left
+            trigger:
+                action: show
+                field: app_ads_txt_enabled
+                condition: checked
+
+        app_ads_txt_available_tags:
+            tab: webmaxx.seo::lang.models.settings.tabs.app_ads_txt
+            type: partial
+            path: $/webmaxx/seo/models/settings/_field_app_ads_txt_available_tags.htm
+            span: right
+            trigger:
+                action: show
+                field: ads_txt_enabled
+                condition: checked

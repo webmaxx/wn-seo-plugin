@@ -1,0 +1,8 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    id:
+        label: 'webmaxx.seo::lang.models.general.id'
+        disabled: true

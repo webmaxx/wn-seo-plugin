@@ -1,0 +1,23 @@
+{
+    "name": "webmaxx/wn-seo-plugin",
+    "type": "winter-plugin",
+    "description": "Winter CMS plugin for managing SEO settings",
+    "homepage": "https://github.com/webmaxx/wn-seo-plugin",
+    "keywords": ["winter cms", "winter", "cms", "plugin", "seo"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "webmaxx",
+            "homepage": "https://webmaxx.github.io",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/webmaxx/wn-seo-plugin/issues",
+        "source": "https://github.com/webmaxx/wn-seo-plugin"
+    },
+    "require": {
+        "php": ">=8.0",
+        "composer/installers": "~1.11"
+    }
+}

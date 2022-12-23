@@ -1,0 +1,120 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    # Meta Tags
+
+    meta_title:
+        tab: webmaxx.seo::lang.models.meta.tabs.seo_meta
+        label: webmaxx.seo::lang.models.meta.fields.meta_title.label
+        type: text
+        span: left
+
+    meta_canonical_url:
+        tab: webmaxx.seo::lang.models.meta.tabs.seo_meta
+        label: webmaxx.seo::lang.models.meta.fields.meta_canonical_url.label
+        type: text
+        span: right
+
+    meta_description:
+        tab: webmaxx.seo::lang.models.meta.tabs.seo_meta
+        label: webmaxx.seo::lang.models.meta.fields.meta_description.label
+        type: textarea
+        size: tiny
+        span: left
+
+    meta_keywords:
+        tab: webmaxx.seo::lang.models.meta.tabs.seo_meta
+        label: webmaxx.seo::lang.models.meta.fields.meta_keywords.label
+        type: taglist
+        span: right
+
+    meta_robots_index:
+        tab: webmaxx.seo::lang.models.meta.tabs.seo_meta
+        label: webmaxx.seo::lang.models.meta.fields.meta_robots_index.label
+        type: balloon-selector
+        default: default
+        options:
+            default: default
+            none: none
+            index: index
+            noindex: noindex
+        span: left
+
+    meta_robots_follow:
+        tab: webmaxx.seo::lang.models.meta.tabs.seo_meta
+        label: webmaxx.seo::lang.models.meta.fields.meta_robots_follow.label
+        type: balloon-selector
+        default: default
+        options:
+            default: default
+            none: none
+            follow: follow
+            nofollow: nofollow
+        span: left
+
+    meta_custom_tags:
+        tab: webmaxx.seo::lang.models.meta.tabs.seo_meta
+        label: webmaxx.seo::lang.models.meta.fields.meta_custom_tags.label
+        type: codeeditor
+        language: html
+        size: large
+        span: full
+
+    meta_available_tags:
+        tab: webmaxx.seo::lang.models.meta.tabs.seo_meta
+        type: partial
+        path: $/webmaxx/seo/models/meta/_field_available_tags.htm
+        span: full
+
+
+    # OpenGraph Tags
+
+    og_type:
+        tab: webmaxx.seo::lang.models.meta.tabs.seo_og
+        label: webmaxx.seo::lang.models.meta.fields.og_type.label
+        type: text
+        span: left
+
+    og_image:
+        tab: webmaxx.seo::lang.models.meta.tabs.seo_og
+        label: webmaxx.seo::lang.models.meta.fields.og_image.label
+        type: mediafinder
+        mode: image
+        imageHeight: 270
+        span: right
+
+    og_title:
+        tab: webmaxx.seo::lang.models.meta.tabs.seo_og
+        label: webmaxx.seo::lang.models.meta.fields.og_title.label
+        type: text
+        span: left
+
+    og_description:
+        tab: webmaxx.seo::lang.models.meta.tabs.seo_og
+        label: webmaxx.seo::lang.models.meta.fields.og_description.label
+        type: textarea
+        size: tiny
+        span: left
+
+    og_url:
+        tab: webmaxx.seo::lang.models.meta.tabs.seo_og
+        label: webmaxx.seo::lang.models.meta.fields.og_url.label
+        type: text
+        span: left
+
+    og_custom_tags:
+        tab: webmaxx.seo::lang.models.meta.tabs.seo_og
+        label: webmaxx.seo::lang.models.meta.fields.og_custom_tags.label
+        type: codeeditor
+        language: html
+        size: large
+        span: full
+
+    og_available_tags:
+        tab: webmaxx.seo::lang.models.meta.tabs.seo_og
+        type: partial
+        path: $/webmaxx/seo/models/meta/_field_available_tags.htm
+        span: full

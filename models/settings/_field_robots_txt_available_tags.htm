@@ -1,0 +1,28 @@
+<?php
+use \Webmaxx\Seo\Classes\Generators\RobotsTxtGenerator;
+
+$tags = app(RobotsTxtGenerator::class)->tags();
+?>
+
+<div class="form-preview">
+    <p><?= Lang::get('webmaxx.seo::lang.models.settings.fields.robots_txt_available_tags.label') ?></p>
+
+    <div class="control-balloon-selector">
+        <ul>
+            <?php foreach ($tags as $tag) : ?>
+                <li
+                    title="<?= $tag->description() ?>"
+                    data-control="dragvalue"
+                    data-drag-click="true"
+                    data-text-value="<?= $tag->tag() ?>"
+                    draggable="true"
+                    style="opacity: 1;"
+                >
+                    <?= $tag->tag() ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+
+    <p class="m-t small"><em><?= Lang::get('webmaxx.seo::lang.models.settings.fields.robots_txt_available_tags.comment') ?></em></p>
+</div>
