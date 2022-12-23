@@ -165,7 +165,10 @@ class Plugin extends PluginBase
                 $this->addSeoTabFieldsToWidget($widget, 'viewBag');
             }
 
-            if ($widget->model->isClassExtendedWith(\Webmaxx\Seo\Behaviors\SeoTaggable::class)) {
+            if (
+                $widget->model instanceof \Model
+                && $widget->model->isClassExtendedWith(\Webmaxx\Seo\Behaviors\SeoTaggable::class)
+            ) {
                 $this->addSeoTabFieldsToWidget($widget, $widget->model->seoTaggableRelationField() . '[tags]');
             }
         });
