@@ -14,6 +14,7 @@ return [
             'tabs' => [
                 'seo_meta' => '[SEO] Meta',
                 'seo_og' => '[SEO] OpenGraph',
+                'seo_microdata' => '[SEO] MicroData',
             ],
             'fields' => [
                 'meta_title' => [
@@ -61,6 +62,9 @@ return [
                 'available_tags' => [
                     'label' => 'These tags are available:',
                     'comment' => 'Click or drag these in to the content area',
+                ],
+                'microdata_content' => [
+                    'label' => 'MicroData content',
                 ],
             ],
         ],
@@ -309,7 +313,7 @@ return [
                 ],
             ],
         ],
-        'metaTags' => [
+        'tags' => [
             'name' => 'Meta tags',
             'description' => '',
             'groups' => [
@@ -326,6 +330,10 @@ return [
                     'description' => 'Global OpenGraph tags to display',
                 ],
             ],
+        ],
+        'microdata' => [
+            'name' => 'Microdata',
+            'description' => 'Custom microdata to display',
         ],
     ],
     'contentTags' => [

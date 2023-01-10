@@ -118,3 +118,14 @@ fields:
         type: partial
         path: $/webmaxx/seo/models/meta/_field_available_tags.htm
         span: full
+
+
+    # Microdata
+
+    microdata_content:
+        tab: webmaxx.seo::lang.models.meta.tabs.seo_microdata
+        label: webmaxx.seo::lang.models.meta.fields.microdata_content.label
+        type: codeeditor
+        language: html
+        size: giant
+        span: full

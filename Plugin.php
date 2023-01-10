@@ -95,6 +95,7 @@ class Plugin extends PluginBase
             'Webmaxx\Seo\Components\Tags'        => 'wmSeoTags',
             'Webmaxx\Seo\Components\GtmHead'     => 'wmSeoGtmHead',
             'Webmaxx\Seo\Components\GtmNoScript' => 'wmSeoGtmNoScript',
+            'Webmaxx\Seo\Components\MicroData'   => 'wmMicroData',
         ];
     }
 

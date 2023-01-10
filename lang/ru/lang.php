@@ -14,6 +14,7 @@ return [
             'tabs' => [
                 'seo_meta' => '[SEO] Meta',
                 'seo_og' => '[SEO] OpenGraph',
+                'seo_microdata' => '[SEO] MicroData',
             ],
             'fields' => [
                 'meta_title' => [
@@ -61,6 +62,9 @@ return [
                 'available_tags' => [
                     'label' => 'Доступные теги:',
                     'comment' => 'Щелкните или перетащите их в область содержимого',
+                ],
+                'microdata_content' => [
+                    'label' => 'Микроразметка',
                 ],
             ],
         ],
@@ -322,6 +326,10 @@ return [
                     'description' => 'Отображать пользовательские OpenGraph теги из глобальных настроек',
                 ],
             ],
+        ],
+        'microdata' => [
+            'name' => 'Микроразметка',
+            'description' => 'Отображение пользовательской микроразметки',
         ],
     ],
     'contentTags' => [
