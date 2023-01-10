@@ -64,7 +64,7 @@ return [
                     'comment' => 'Щелкните или перетащите их в область содержимого',
                 ],
                 'microdata_content' => [
-                    'label' => 'Микроразметка',
+                    'label' => 'Пользовательская микроразметка',
                 ],
             ],
         ],
@@ -75,6 +75,7 @@ return [
                 'site' => 'Общие настройки сайта',
                 'meta_tags' => 'META-теги',
                 'og_tags' => 'Open Graph',
+                'microdata' => 'Микроразметка',
                 'counters' => 'Счётчики',
                 'robots_txt' => 'Robots.txt',
                 'humans_txt' => 'Humans.txt',
@@ -119,6 +120,9 @@ return [
                 ],
                 'custom_og_tags' => [
                     'label' => 'Пользовательские OpenGraph теги',
+                ],
+                'custom_microdata_content' => [
+                    'label' => 'Пользовательская микроразметка',
                 ],
                 'gtm_code' => [
                     'label' => 'Google Tag Manager ID',
@@ -326,10 +330,6 @@ return [
                     'description' => 'Отображать пользовательские OpenGraph теги из глобальных настроек',
                 ],
             ],
-        ],
-        'microdata' => [
-            'name' => 'Микроразметка',
-            'description' => 'Отображение пользовательской микроразметки',
         ],
     ],
     'contentTags' => [

@@ -1,1 +1,7 @@
 {{ __SELF__.tags|raw }}
+
+{% if __SELF__.microdata %}
+    {% put wm_microdata %}
+        {{ __SELF__.microdata|raw }}
+    {% endput %}
+{% endif %}

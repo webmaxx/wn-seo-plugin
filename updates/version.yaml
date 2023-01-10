@@ -7,3 +7,5 @@
     - 'Fix. Error when checking the "isClassExtendedWith" model if the model is not inherited from the "Model" class'
 '1.0.3':
     - 'Added MicroData tab for pages and models'
+'1.1.0':
+    - 'Added new MicroData tab for pages and models with tags. Remove wmMicroData component'

@@ -9,6 +9,7 @@ tabs:
         webmaxx.seo::lang.models.settings.tabs.site: icon-newspaper-o
         webmaxx.seo::lang.models.settings.tabs.meta_tags: icon-tag
         webmaxx.seo::lang.models.settings.tabs.og_tags: icon-object-group
+        webmaxx.seo::lang.models.settings.tabs.microdata: icon-braille
         webmaxx.seo::lang.models.settings.tabs.counters: icon-line-chart
         webmaxx.seo::lang.models.settings.tabs.robots_txt: icon-robot
         webmaxx.seo::lang.models.settings.tabs.humans_txt: icon-user-group
@@ -94,7 +95,7 @@ tabs:
             fontSize: 14
             size: giant
 
-        meta_available_tags:
+        _meta_available_tags:
             tab: webmaxx.seo::lang.models.settings.tabs.meta_tags
             type: partial
             path: $/webmaxx/seo/models/meta/_field_available_tags.htm
@@ -119,8 +120,25 @@ tabs:
             fontSize: 14
             size: giant
 
-        og_available_tags:
+        _og_available_tags:
             tab: webmaxx.seo::lang.models.settings.tabs.og_tags
+            type: partial
+            path: $/webmaxx/seo/models/meta/_field_available_tags.htm
+            span: full
+
+
+        # MicroData
+
+        custom_microdata_content:
+            tab: webmaxx.seo::lang.models.settings.tabs.microdata
+            label: webmaxx.seo::lang.models.settings.fields.custom_microdata_content.label
+            type: codeeditor
+            language: html
+            fontSize: 14
+            size: giant
+
+        _microdata_available_tags:
+            tab: webmaxx.seo::lang.models.settings.tabs.microdata
             type: partial
             path: $/webmaxx/seo/models/meta/_field_available_tags.htm
             span: full
@@ -145,7 +163,7 @@ tabs:
 
         # Robots.txt
 
-        robots_txt_link:
+        _robots_txt_link:
             tab: webmaxx.seo::lang.models.settings.tabs.robots_txt
             type: partial
             path: $/webmaxx/seo/models/settings/_field_robots_txt_link.htm
@@ -170,7 +188,7 @@ tabs:
                 field: robots_txt_enabled
                 condition: checked
 
-        robots_txt_available_tags:
+        _robots_txt_available_tags:
             tab: webmaxx.seo::lang.models.settings.tabs.robots_txt
             type: partial
             path: $/webmaxx/seo/models/settings/_field_robots_txt_available_tags.htm
@@ -183,13 +201,13 @@ tabs:
 
         # Humans.txt
 
-        humans_txt_link:
+        _humans_txt_link:
             tab: webmaxx.seo::lang.models.settings.tabs.humans_txt
             type: partial
             path: $/webmaxx/seo/models/settings/_field_humans_txt_link.htm
             span: left
 
-        humans_txt_info:
+        _humans_txt_info:
             tab: webmaxx.seo::lang.models.settings.tabs.humans_txt
             label: webmaxx.seo::lang.models.settings.fields.humans_txt_info.label
             type: partial
@@ -215,7 +233,7 @@ tabs:
                 field: humans_txt_enabled
                 condition: checked
 
-        humans_txt_available_tags:
+        _humans_txt_available_tags:
             tab: webmaxx.seo::lang.models.settings.tabs.humans_txt
             type: partial
             path: $/webmaxx/seo/models/settings/_field_humans_txt_available_tags.htm
@@ -228,13 +246,13 @@ tabs:
 
         # Security.txt
 
-        security_txt_link:
+        _security_txt_link:
             tab: webmaxx.seo::lang.models.settings.tabs.security_txt
             type: partial
             path: $/webmaxx/seo/models/settings/_field_security_txt_link.htm
             span: left
 
-        security_txt_info:
+        _security_txt_info:
             tab: webmaxx.seo::lang.models.settings.tabs.security_txt
             label: webmaxx.seo::lang.models.settings.fields.security_txt_info.label
             type: partial
@@ -367,7 +385,7 @@ tabs:
                 field: security_txt_enabled
                 condition: checked
 
-        security_txt_available_tags:
+        _security_txt_available_tags:
             tab: webmaxx.seo::lang.models.settings.tabs.security_txt
             type: partial
             path: $/webmaxx/seo/models/settings/_field_security_txt_available_tags.htm
@@ -380,13 +398,13 @@ tabs:
 
         # Ads.txt
 
-        ads_txt_link:
+        _ads_txt_link:
             tab: webmaxx.seo::lang.models.settings.tabs.ads_txt
             type: partial
             path: $/webmaxx/seo/models/settings/_field_ads_txt_link.htm
             span: left
 
-        ads_txt_info:
+        _ads_txt_info:
             tab: webmaxx.seo::lang.models.settings.tabs.ads_txt
             label: webmaxx.seo::lang.models.settings.fields.ads_txt_info.label
             type: partial
@@ -465,7 +483,7 @@ tabs:
                 field: ads_txt_enabled
                 condition: checked
 
-        ads_txt_available_tags:
+        _ads_txt_available_tags:
             tab: webmaxx.seo::lang.models.settings.tabs.ads_txt
             type: partial
             path: $/webmaxx/seo/models/settings/_field_ads_txt_available_tags.htm
@@ -478,13 +496,13 @@ tabs:
 
         # App-Ads.txt
 
-        app_ads_txt_link:
+        _app_ads_txt_link:
             tab: webmaxx.seo::lang.models.settings.tabs.app_ads_txt
             type: partial
             path: $/webmaxx/seo/models/settings/_field_app_ads_txt_link.htm
             span: left
 
-        app_ads_txt_info:
+        _app_ads_txt_info:
             tab: webmaxx.seo::lang.models.settings.tabs.app_ads_txt
             label: webmaxx.seo::lang.models.settings.fields.app_ads_txt_info.label
             type: partial
@@ -563,7 +581,7 @@ tabs:
                 field: app_ads_txt_enabled
                 condition: checked
 
-        app_ads_txt_available_tags:
+        _app_ads_txt_available_tags:
             tab: webmaxx.seo::lang.models.settings.tabs.app_ads_txt
             type: partial
             path: $/webmaxx/seo/models/settings/_field_app_ads_txt_available_tags.htm

@@ -63,7 +63,7 @@ fields:
         size: large
         span: full
 
-    meta_available_tags:
+    _meta_available_tags:
         tab: webmaxx.seo::lang.models.meta.tabs.seo_meta
         type: partial
         path: $/webmaxx/seo/models/meta/_field_available_tags.htm
@@ -113,7 +113,7 @@ fields:
         size: large
         span: full
 
-    og_available_tags:
+    _og_available_tags:
         tab: webmaxx.seo::lang.models.meta.tabs.seo_og
         type: partial
         path: $/webmaxx/seo/models/meta/_field_available_tags.htm
@@ -128,4 +128,10 @@ fields:
         type: codeeditor
         language: html
         size: giant
+        span: full
+
+    _microdata_available_tags:
+        tab: webmaxx.seo::lang.models.meta.tabs.seo_microdata
+        type: partial
+        path: $/webmaxx/seo/models/meta/_field_available_tags.htm
         span: full

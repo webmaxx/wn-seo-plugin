@@ -64,7 +64,7 @@ return [
                     'comment' => 'Click or drag these in to the content area',
                 ],
                 'microdata_content' => [
-                    'label' => 'MicroData content',
+                    'label' => 'Custom MicroData',
                 ],
             ],
         ],
@@ -75,6 +75,7 @@ return [
                 'site' => 'General site settings',
                 'meta_tags' => 'Meta tags',
                 'og_tags' => 'Open Graph',
+                'microdata' => 'MicroData',
                 'counters' => 'Counters',
                 'robots_txt' => 'Robots.txt',
                 'humans_txt' => 'Humans.txt',
@@ -119,6 +120,9 @@ return [
                 ],
                 'custom_og_tags' => [
                     'label' => 'Custom Open Graph tags',
+                ],
+                'custom_microdata_content' => [
+                    'label' => 'Custom MicroData',
                 ],
                 'gtm_code' => [
                     'label' => 'Google Tag Manager ID',
@@ -330,10 +334,6 @@ return [
                     'description' => 'Global OpenGraph tags to display',
                 ],
             ],
-        ],
-        'microdata' => [
-            'name' => 'Microdata',
-            'description' => 'Custom microdata to display',
         ],
     ],
     'contentTags' => [
