@@ -9,3 +9,7 @@
     - 'Added MicroData tab for pages and models'
 '1.1.0':
     - 'Added new MicroData tab for pages and models with tags. Remove wmMicroData component'
+'1.2.0':
+    - 'Remove settings params: "sitename_in_title_enabled", "site_name_title" and "site_name_title_position_in_title". Added settings params: "page_title_prefix" and "page_title_postfix".'
+'1.2.1':
+    - 'Update version.yaml file'
