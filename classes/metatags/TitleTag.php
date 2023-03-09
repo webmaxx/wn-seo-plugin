@@ -20,16 +20,12 @@ class TitleTag extends BaseMetaTag
 
         return collect($title)
             ->when(
-                Settings::get('sitename_in_title_enabled'),
-                fn($collection) => $collection
-                    ->when(
-                        Settings::get('site_name_title_position_in_title') == 'before',
-                        fn($collection) => $collection->prepend(Settings::get('site_name_title'))
-                    )
-                    ->when(
-                        Settings::get('site_name_title_position_in_title') == 'after',
-                        fn($collection) => $collection->push(Settings::get('site_name_title'))
-                    )
+                Settings::get('page_title_prefix'),
+                fn($collection) => $collection->prepend(Settings::get('page_title_prefix'))
+            )
+            ->when(
+                Settings::get('page_title_postfix'),
+                fn($collection) => $collection->push(Settings::get('page_title_postfix'))
             )
             ->implode(' ');
     }

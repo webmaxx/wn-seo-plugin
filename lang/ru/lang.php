@@ -73,6 +73,7 @@ return [
             'description' => 'Настройки SEO',
             'tabs' => [
                 'site' => 'Общие настройки сайта',
+                'url_settings' => 'Настройки URL',
                 'meta_tags' => 'META-теги',
                 'og_tags' => 'Open Graph',
                 'microdata' => 'Микроразметка',
@@ -88,23 +89,46 @@ return [
                     'label' => 'Название сайта',
                     'placeholder' => 'Название сайта',
                 ],
-                'sitename_in_title_enabled' => [
-                    'label' => 'Название сайта в title',
-                ],
                 'current_url_as_canonical' => [
                     'label' => 'Использовать текущий URL как Canonical',
                     'comment' => 'Если для страницы не будет задан Canonical URL, то будет использоватья текущий URL-адрес страницы',
                 ],
-                'site_name_title' => [
-                    'label' => 'Название сайта в заголовке страницы',
+                'page_title_prefix' => [
+                    'label' => 'Префикс в заголовке страницы',
+                    'placeholder' => 'Site Name -',
+                ],
+                'page_title_postfix' => [
+                    'label' => 'Постфикс в заголовке страницы',
                     'placeholder' => '- Site Name',
                 ],
-                'site_name_title_position_in_title' => [
-                    'label' => 'Позиция названия сайта в теге title',
+                'url_use_redirect' => [
+                    'label' => 'Перенаправление',
+                    'comment' => 'Использовать редирект, если URL-адрес не соответствует настройкам',
+                ],
+                'url_force_https' => [
+                    'label' => 'Использовать HTTPS',
+                    'comment' => 'Принудительное использование HTTPS',
+                ],
+                'url_www_prefix' => [
+                    'label' => 'Префикс "www"',
                     'options' => [
-                        'before' => 'В начале',
-                        'after' => 'В конце',
+                        'none' => 'Без предпочтений',
+                        'use' => 'Использовать',
+                        'unuse' => 'Не использовать',
                     ],
+                ],
+                'url_trailing_slash' => [
+                    'label' => 'Завершающая косая черта',
+                    'comment' => 'Не будет применяться к URL-адресам которые заканчиваются расширением файла.',
+                    'options' => [
+                        'none' => 'Без предпочтений',
+                        'use' => 'Использовать',
+                        'unuse' => 'Не использовать',
+                    ],
+                ],
+                'url_ignore' => [
+                    'label' => 'Пути, которые следует игнорировать',
+                    'comment' => 'Вы можете предоставить список путей относительно корневого URL, в которых нормализация не произойдет. Чтобы включить все вложенные папки и файлы, используйте подстановочный знак *.',
                 ],
                 'meta_robots_index' => [
                     'label' => 'Robots Index',

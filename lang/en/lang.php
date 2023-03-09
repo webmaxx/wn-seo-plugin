@@ -73,6 +73,7 @@ return [
             'description' => 'SEO settings',
             'tabs' => [
                 'site' => 'General site settings',
+                'url_settings' => 'URL Settings',
                 'meta_tags' => 'Meta tags',
                 'og_tags' => 'Open Graph',
                 'microdata' => 'MicroData',
@@ -88,23 +89,46 @@ return [
                     'label' => 'Site name',
                     'placeholder' => '',
                 ],
-                'sitename_in_title_enabled' => [
-                    'label' => 'Site name in title',
-                ],
                 'current_url_as_canonical' => [
                     'label' => 'Use current url as canonical',
                     'comment' => '',
                 ],
-                'site_name_title' => [
-                    'label' => 'Site name in page title',
+                'page_title_prefix' => [
+                    'label' => 'Prefix in page title',
+                    'placeholder' => 'Site Name -',
+                ],
+                'page_title_postfix' => [
+                    'label' => 'Postfix in page title',
                     'placeholder' => '- Site Name',
                 ],
-                'site_name_title_position_in_title' => [
-                    'label' => 'Site name position in title',
+                'url_use_redirect' => [
+                    'label' => 'Redirect',
+                    'comment' => 'Use a redirect if the URL does not match the settings',
+                ],
+                'url_force_https' => [
+                    'label' => 'Force HTTPS',
+                    'comment' => 'Forced use of HTTPS',
+                ],
+                'url_www_prefix' => [
+                    'label' => 'Prefix "www"',
                     'options' => [
-                        'before' => 'Before title',
-                        'after' => 'After title',
+                        'none' => 'No preferences',
+                        'use' => 'Use',
+                        'unuse' => 'Not use',
                     ],
+                ],
+                'url_trailing_slash' => [
+                    'label' => 'Завершающая косая черта',
+                    'comment' => 'Will not apply to URLs that end with a file extension',
+                    'options' => [
+                        'none' => 'No preferences',
+                        'use' => 'Use',
+                        'unuse' => 'Not use',
+                    ],
+                ],
+                'url_ignore' => [
+                    'label' => 'Paths that should be ignored',
+                    'comment' => 'You can provide a list of paths relative to the root URL in which normalization will not occur. To include all subfolders and files, use a wildcard character "*"',
                 ],
                 'meta_robots_index' => [
                     'label' => 'Robots Index',
