@@ -6,6 +6,7 @@ namespace Webmaxx\Seo\Classes\Metatags;
 
 use System\Classes\MediaLibrary;
 use Webmaxx\Seo\Classes\Metatags\BaseMetaTag;
+use Webmaxx\Seo\Classes\UrlNormalizer;
 use Webmaxx\Seo\Models\Settings;
 
 class OgImageTag extends BaseMetaTag
@@ -19,6 +20,6 @@ class OgImageTag extends BaseMetaTag
             ?: $this->context->page->og_image
             ?: Settings::get('og_image');
 
-        return $imageUrl ? url(MediaLibrary::url($imageUrl)) : null;
+        return $imageUrl ? UrlNormalizer::normalize(url(MediaLibrary::url($imageUrl))) : null;
     }
 }

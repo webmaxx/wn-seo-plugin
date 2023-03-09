@@ -8,13 +8,9 @@ use Backend\Models\UserRole;
 use System\Classes\PluginBase;
 use System\Classes\PluginManager;
 use System\Classes\SettingsManager;
-use Webmaxx\Seo\Classes\ContentTags\Presets\ComponentTagsPreset;
-use Webmaxx\Seo\Classes\ContentTags\Presets\GeneratorAdsTxtPreset;
-use Webmaxx\Seo\Classes\ContentTags\Presets\GeneratorAppAdsTxtPreset;
-use Webmaxx\Seo\Classes\ContentTags\Presets\GeneratorDefaultPreset;
-use Webmaxx\Seo\Classes\ContentTags\Presets\GeneratorHumansTxtPreset;
-use Webmaxx\Seo\Classes\ContentTags\Presets\GeneratorRobotsTxtPreset;
-use Webmaxx\Seo\Classes\ContentTags\Presets\GeneratorSecurityTxtPreset;
+use Webmaxx\Seo\Classes\ContentTags\Presets;
+use Webmaxx\Seo\Classes\UrlNormalizer;
+use Webmaxx\Seo\Middlewares\UrlNormalizeMiddleware;
 
 /**
  * Seo Plugin Information File
@@ -40,13 +36,13 @@ class Plugin extends PluginBase
      */
     public function register(): void
     {
-        App::singleton('wmSeoGeneratorDefaultContentTagsPreset',     fn() => new GeneratorDefaultPreset);
-        App::singleton('wmSeoGeneratorRobotsTxtContentTagsPreset',   fn() => new GeneratorRobotsTxtPreset);
-        App::singleton('wmSeoGeneratorHumansTxtContentTagsPreset',   fn() => new GeneratorHumansTxtPreset);
-        App::singleton('wmSeoGeneratorSecurityTxtContentTagsPreset', fn() => new GeneratorSecurityTxtPreset);
-        App::singleton('wmSeoGeneratorAdsTxtContentTagsPreset',      fn() => new GeneratorAdsTxtPreset);
-        App::singleton('wmSeoGeneratorAppAdsTxtContentTagsPreset',   fn() => new GeneratorAppAdsTxtPreset);
-        App::singleton('wmSeoComponentTagsContentTagsPreset',        fn() => new ComponentTagsPreset);
+        App::singleton('wmSeoGeneratorDefaultContentTagsPreset',     fn() => new Presets\GeneratorDefaultPreset);
+        App::singleton('wmSeoGeneratorRobotsTxtContentTagsPreset',   fn() => new Presets\GeneratorRobotsTxtPreset);
+        App::singleton('wmSeoGeneratorHumansTxtContentTagsPreset',   fn() => new Presets\GeneratorHumansTxtPreset);
+        App::singleton('wmSeoGeneratorSecurityTxtContentTagsPreset', fn() => new Presets\GeneratorSecurityTxtPreset);
+        App::singleton('wmSeoGeneratorAdsTxtContentTagsPreset',      fn() => new Presets\GeneratorAdsTxtPreset);
+        App::singleton('wmSeoGeneratorAppAdsTxtContentTagsPreset',   fn() => new Presets\GeneratorAppAdsTxtPreset);
+        App::singleton('wmSeoComponentTagsContentTagsPreset',        fn() => new Presets\ComponentTagsPreset);
 
         \Event::listen('webmaxx.seo.generators.extendDefaultContentTags', function(...$tags) {
             app('wmSeoGeneratorDefaultContentTagsPreset')->addTags($tags);
@@ -82,7 +78,9 @@ class Plugin extends PluginBase
      */
     public function boot(): void
     {
+        $this->extendMiddlewares();
         $this->extendPagesForms();
+        $this->normalizeUrls();
     }
 
     /**
@@ -147,6 +145,23 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerMarkupTags()
+    {
+        return [
+            'filters' => [
+                'urlNormalize' => function ($text, $force = false) {
+                    return UrlNormalizer::normalize($text, $force);
+                },
+            ],
+        ];
+    }
+
+    protected function extendMiddlewares()
+    {
+        $this->app['Illuminate\Contracts\Http\Kernel']
+            ->prependMiddleware(UrlNormalizeMiddleware::class);
+    }
+
     protected function extendPagesForms(): void
     {
         Event::listen('backend.form.extendFieldsBefore', function(\Backend\Widgets\Form $widget) {
@@ -189,5 +204,43 @@ class Plugin extends PluginBase
         $widget->tabs = $widget->tabs ?: ['fields' => []];
 
         $widget->tabs['fields'] = array_merge($widget->tabs['fields'], $halcyonFields);
+    }
+
+    protected function normalizeUrls()
+    {
+        Event::listen('pages.menu.referencesGenerated', function (&$items) {
+            $iterator = function ($menuItems) use (&$iterator) {
+                $result = [];
+
+                foreach ($menuItems as $item) {
+                    if ($item->items) {
+                        $item->items = $iterator($item->items);
+                    }
+                    if (isset($item->normalized)) {
+                        continue;
+                    }
+
+                    if (!empty($item->url) && substr($item->url, 0, 1) !== '#') {
+                        $originalUrl = $item->url;
+                        $normalizedUrl = UrlNormalizer::normalize($item->url);
+
+                        if ($originalUrl !== $normalizedUrl) {
+                            $item->url = $normalizedUrl;
+                            $item->normalized = true;
+                        } else {
+                            $item->normalized = false;
+                        }
+                    } else {
+                        $item->normalized = true;
+                    }
+
+                    $result[] = $item;
+                }
+
+                return $result;
+            };
+
+            $items = $iterator($items);
+        });
     }
 }

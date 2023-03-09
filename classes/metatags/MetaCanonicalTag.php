@@ -6,6 +6,7 @@ namespace Webmaxx\Seo\Classes\Metatags;
 
 use Url;
 use Webmaxx\Seo\Classes\Metatags\BaseMetaTag;
+use Webmaxx\Seo\Classes\UrlNormalizer;
 use Webmaxx\Seo\Models\Settings;
 
 class MetaCanonicalTag extends BaseMetaTag
@@ -15,12 +16,14 @@ class MetaCanonicalTag extends BaseMetaTag
 
     protected function content(): ?string
     {
-        return data_get($this->context->modelData, 'meta_canonical_url')
+        $canonical = data_get($this->context->modelData, 'meta_canonical_url')
             ?: $this->context->page->meta_canonical_url
             ?: (
                 Settings::get('current_url_as_canonical')
                     ? Url::current()
                     : null
             );
+
+        return $canonical ? UrlNormalizer::normalize($canonical) : null;
     }
 }

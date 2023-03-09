@@ -28,54 +28,54 @@ tabs:
 
         # URL settings
 
-        # url_use_redirect:
-        #     tab: webmaxx.seo::lang.models.settings.tabs.url_settings
-        #     label: webmaxx.seo::lang.models.settings.fields.url_use_redirect.label
-        #     comment: webmaxx.seo::lang.models.settings.fields.url_use_redirect.comment
-        #     type: checkbox
-        #     default: false
-        #     span: left
+        url_use_redirect:
+            tab: webmaxx.seo::lang.models.settings.tabs.url_settings
+            label: webmaxx.seo::lang.models.settings.fields.url_use_redirect.label
+            comment: webmaxx.seo::lang.models.settings.fields.url_use_redirect.comment
+            type: checkbox
+            default: false
+            span: left
 
-        # url_www_prefix:
-        #     tab: webmaxx.seo::lang.models.settings.tabs.url_settings
-        #     label: webmaxx.seo::lang.models.settings.fields.url_www_prefix.label
-        #     type: balloon-selector
-        #     options:
-        #         none: webmaxx.seo::lang.models.settings.fields.url_www_prefix.options.none
-        #         use: webmaxx.seo::lang.models.settings.fields.url_www_prefix.options.use
-        #         unuse: webmaxx.seo::lang.models.settings.fields.url_www_prefix.options.unuse
-        #     default: none
-        #     span: right
+        url_www_prefix:
+            tab: webmaxx.seo::lang.models.settings.tabs.url_settings
+            label: webmaxx.seo::lang.models.settings.fields.url_www_prefix.label
+            type: balloon-selector
+            options:
+                none: webmaxx.seo::lang.models.settings.fields.url_www_prefix.options.none
+                use: webmaxx.seo::lang.models.settings.fields.url_www_prefix.options.use
+                unuse: webmaxx.seo::lang.models.settings.fields.url_www_prefix.options.unuse
+            default: none
+            span: right
 
-        # url_force_https:
-        #     tab: webmaxx.seo::lang.models.settings.tabs.url_settings
-        #     label: webmaxx.seo::lang.models.settings.fields.url_force_https.label
-        #     comment: webmaxx.seo::lang.models.settings.fields.url_force_https.comment
-        #     type: checkbox
-        #     default: false
-        #     span: left
+        url_force_https:
+            tab: webmaxx.seo::lang.models.settings.tabs.url_settings
+            label: webmaxx.seo::lang.models.settings.fields.url_force_https.label
+            comment: webmaxx.seo::lang.models.settings.fields.url_force_https.comment
+            type: checkbox
+            default: false
+            span: left
 
-        # url_trailing_slash:
-        #     tab: webmaxx.seo::lang.models.settings.tabs.url_settings
-        #     label: webmaxx.seo::lang.models.settings.fields.url_trailing_slash.label
-        #     comment: webmaxx.seo::lang.models.settings.fields.url_trailing_slash.comment
-        #     type: balloon-selector
-        #     options:
-        #         none: webmaxx.seo::lang.models.settings.fields.url_trailing_slash.options.none
-        #         use: webmaxx.seo::lang.models.settings.fields.url_trailing_slash.options.use
-        #         unuse: webmaxx.seo::lang.models.settings.fields.url_trailing_slash.options.unuse
-        #     default: none
-        #     commentHtml: true
-        #     span: right
+        url_trailing_slash:
+            tab: webmaxx.seo::lang.models.settings.tabs.url_settings
+            label: webmaxx.seo::lang.models.settings.fields.url_trailing_slash.label
+            comment: webmaxx.seo::lang.models.settings.fields.url_trailing_slash.comment
+            type: balloon-selector
+            options:
+                none: webmaxx.seo::lang.models.settings.fields.url_trailing_slash.options.none
+                use: webmaxx.seo::lang.models.settings.fields.url_trailing_slash.options.use
+                unuse: webmaxx.seo::lang.models.settings.fields.url_trailing_slash.options.unuse
+            default: none
+            commentHtml: true
+            span: right
 
-        # url_ignore:
-        #     tab: webmaxx.seo::lang.models.settings.tabs.url_settings
-        #     label: webmaxx.seo::lang.models.settings.fields.url_ignore.label
-        #     commentAbove: webmaxx.seo::lang.models.settings.fields.url_ignore.comment
-        #     commentHtml: true
-        #     type: textarea
-        #     size: large
-        #     placeholder: "Examples:\nbackend/*\nstorage/app/media/*"
+        url_ignore:
+            tab: webmaxx.seo::lang.models.settings.tabs.url_settings
+            label: webmaxx.seo::lang.models.settings.fields.url_ignore.label
+            commentAbove: webmaxx.seo::lang.models.settings.fields.url_ignore.comment
+            commentHtml: true
+            type: textarea
+            size: large
+            placeholder: "Examples:\nbackend/*\nstorage/app/media/*"
 
         # Meta Tags
 
