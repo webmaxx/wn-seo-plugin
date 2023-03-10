@@ -2,6 +2,9 @@
 
 use Webmaxx\Seo\Models\Settings;
 
+/**
+ * Fork from https://github.com/bennothommo/wn-url-normaliser-plugin
+ */
 class UrlNormalizer
 {
     use \Winter\Storm\Support\Traits\Singleton;
